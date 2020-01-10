@@ -89,6 +89,18 @@ export class AppComponent {
         url: '/history-admin',
         direct: 'forward',
         icon: 'book'
+      },
+      {
+        title: 'Edit profile (User mode)',
+        url: '/edit-profile-swm',
+        direct: 'forward',
+        icon: 'book'
+      },
+      {
+        title: 'Set service fees (Admin mode)',
+        url: '/set-service-fees',
+        direct: 'forward',
+        icon: 'book'
       }
     ];
 
@@ -99,7 +111,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-    }).catch(() => {});
+    }).catch(() => { });
   }
 
   goToEditProgile() {

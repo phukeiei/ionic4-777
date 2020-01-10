@@ -20,7 +20,9 @@ const routes: Routes = [
   { path: 'edit-profile-admin', loadChildren: './pages/modal/edit-profile-admin/edit-profile-admin.module#EditProfileAdminPageModule' },
   { path: 'history-admin', loadChildren: './pages/history-admin/history-admin.module#HistoryAdminPageModule' },
   { path: 'user-tab', loadChildren: './pages/tabs/user-tab/user-tab.module#UserTabPageModule' },
-  { path: 'admin-tab', loadChildren: './pages/tabs/admin-tab/admin-tab.module#AdminTabPageModule' }
+  { path: 'admin-tab', loadChildren: './pages/tabs/admin-tab/admin-tab.module#AdminTabPageModule' },
+  { path: 'edit-profile-swm', loadChildren: './pages/edit-profile-swm/edit-profile-swm.module#EditProfileSwmPageModule' },
+  { path: 'set-service-fees', loadChildren: './pages/set-service-fees/set-service-fees.module#SetServiceFeesPageModule' }
 ];
 
 @NgModule({
