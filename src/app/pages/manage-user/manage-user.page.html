@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>manage user</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>เลือกช่วงอายุ<br></ion-label>
+    <ion-select>
+      <ion-select-option value="low">ต่ำกว่า 18 ปี</ion-select-option>
+      <ion-select-option value="hight">18 ปีขึ้นไป</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>กิตติยา ยังโซ๊ะ <br>
+      60160331
+    </ion-label>
+    <ion-badge slot="end" (click)="presentImage(themeCover)">
+      <ion-icon name="create"></ion-icon>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    <ion-label>ธิมาภรณ์ นิรมิตวสุ <br>
+      60160338
+    </ion-label>
+    <ion-badge slot="end" (click)="presentImage(themeCover)">
+      <ion-icon name="create"></ion-icon>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    <ion-label>พัสกร ใชยะ <br>
+      60160091
+    </ion-label>
+    <ion-badge slot="end" (click)="presentImage(themeCover)">
+      <ion-icon name="create"></ion-icon>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    <ion-label>ชลดา ทองย้อย <br>
+      60160192
+    </ion-label>
+    <ion-badge slot="end" (click)="presentImage(themeCover)">
+      <ion-icon name="create"></ion-icon>
+    </ion-badge>
+  </ion-item>
+  <ion-item>
+    <ion-label>กัณณภัต เพียรแก้ว <br>
+      60160330
+    </ion-label>
+    <ion-badge slot="end" (click)="presentImage(themeCover)">
+      <ion-icon name="create"></ion-icon>
+    </ion-badge>
+  </ion-item>
+
+</ion-content>

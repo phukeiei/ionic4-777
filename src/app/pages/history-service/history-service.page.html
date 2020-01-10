@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-card-subtitle>
+            <ion-text color="dark"><b>วันที่เข้าใช้บริการ
+              </b></ion-text>
+          </ion-card-subtitle>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card-subtitle>
+            <ion-text color="dark"><b>เวลาเข้าใช้บริการ
+              </b></ion-text>
+          </ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-header>
+
+  <ion-card *ngFor="let datetime of datetimeList">
+    <ion-card-content style="font-size: 15px;">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <b>{{datetime.date}}</b>
+          </ion-col>
+          <ion-col size="6">
+            <b>{{datetime.time}}</b>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

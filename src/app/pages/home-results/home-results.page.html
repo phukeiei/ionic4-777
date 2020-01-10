@@ -1,0 +1,49 @@
+<h1>user</h1>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-text color="light">
+        <ion-text color="light" class="fw700">หน้าหลัก</ion-text>
+      </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="notifications()">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge color="dark" slot="end">2</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card style="text-align: center; background-color: white;">
+          <ion-icon name="person" style="font-size: 100px;"></ion-icon>
+          <ion-card-title expand="block">สมัครสมาชิก</ion-card-title>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card style="text-align: center; background-color: white;">
+          <ion-icon name="person" style="font-size: 100px;"></ion-icon>
+          <ion-card-title expand="block">แก้ไขข้อมูล</ion-card-title>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  <ion-row>
+    <ion-col size="6">
+      <ion-card style="text-align: center; background-color: white;">
+        <ion-icon name="person" style="font-size: 100px;"></ion-icon>
+        <ion-card-title expand="block">ประวัติใช้บริการ</ion-card-title>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+
+</ion-content>

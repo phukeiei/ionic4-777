@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>ข้อมูลการสมัครสมาชิก</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>คำนำหน้า :</ion-label>  <br>
+      <ion-input placeholder="คำนำหน้า"value ="นางสาว"></ion-input>
+    </ion-item> 
+  <ion-item>
+      <ion-label>ชื่อ :</ion-label>
+    <ion-input placeholder="ชื่อ"value ="สมปอง"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>นามสกุล :</ion-label>
+    <ion-input placeholder="นามสกุล"value ="สมใจ"></ion-input>
+  </ion-item>
+    <ion-item>
+        <ion-label>ชื่อเล่น :</ion-label>
+      <ion-input placeholder="ชื่อเล่น"value ="สม"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>วันเกิด :</ion-label>
+      <ion-input placeholder="ชื่อเล่น"value ="28 กันยายน 1998"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>ที่อยู่ :</ion-label>  
+      <ion-input value="1 หมู่ 3 ตำบล ดอนฉิมพลี อำเภอ บางน้ำเปรี้ยว จังหวัด ฉะเชิงเทรา 25674"></ion-input>
+    </ion-item>
+  <ion-item>
+    <ion-input placeholder="สถานที่ทำงาน/ศึกษา"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="เบอร์โทรศัพท์"></ion-input>
+  </ion-item>
+  <ion-item>
+      <h2><b>บุคคลที่สามารถติดต่อได้</b></h2>
+    </ion-item>
+  <ion-item>
+    <ion-label>คำนำหน้า</ion-label>
+    <ion-select placeholder="Select One">
+      <ion-select-option>นาย</ion-select-option>
+      <ion-select-option>นางสาว</ion-select-option>
+      <ion-select-option>เด็กชาย</ion-select-option>
+      <ion-select-option>เด็กหญิง</ion-select-option>
+      <ion-select-option>ผู้ช่วยศาสตราจารย์</ion-select-option>
+      <ion-select-option>นาวาอากาศโท</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-input placeholder="ชื่อ"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="นามสกุล"></ion-input>
+  </ion-item>
+    <ion-button expand="block" (click)="presentAlert()">สมัครสมาชิก</ion-button>
+
+</ion-content>

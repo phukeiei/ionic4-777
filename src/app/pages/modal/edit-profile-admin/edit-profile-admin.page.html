@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="close"></ion-icon> Close
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>นางสาวธิมาภรณ์ นิรมิตวสุ</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <label>รหัส : 60160338</label><br>
+      <label>ชื่อ : นางสาวธิมาภรณ์ นิรมิตวสุ</label><br>
+      <label>ชื่อเล่น: กบซ่า5555</label><br>
+      <label>อายุ : 500 ปี</label><br>
+      <label>วันเกิด : 5 เมษายน 2542</label><br>
+      <label>ที่อยู่ : 88/99 ตำบล/แขวง ทับเที่ยง อำเภอ แสนสุข จังหวัด ชลบุรี 20131</label><br>
+      <ion-row>อาชีพ : <input type="text" id="career"></ion-row>
+      <label for="office">สถานที่ทำงาน : </label><input type="text" id="office"><br>
+      <label for="tel">เบอร์โทรศัพท์ : </label><input type="text" id="tel"><br>
+      <label for="namecontect">ชื่อ-นามสกุลผู้ติดต่อ : </label><input type="text" id="namecontect"><br>
+      <label for="telcontect">เบอร์โทรศัพท์ผู้ติดต่อ : </label><input type="text" id="telcontect"><br>
+      <section>
+          <ion-button expand="block" (click)="closeModal()">บันทึก</ion-button>
+      </section>
+      
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
