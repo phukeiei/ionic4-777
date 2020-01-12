@@ -9,8 +9,17 @@ import { SetServiceFeesPage } from './set-service-fees.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: SetServiceFeesPage
+    path: 'set-service-fees',
+    component: SetServiceFeesPage,
+    children: [
+      { path: 'service-fee', loadChildren: './pages/register-user/register-user.module#RegisterUserPageModule' },
+      { path: 'membership-fee', loadChildren: '../tab2/tab2.module#Tab2PageModule' },
+    ]
+  },
+  {
+    path:'',
+    redirectTo:'/set-service-fees/register-user',
+    pathMatch:'full'
   }
 ];
 
@@ -23,4 +32,4 @@ const routes: Routes = [
   ],
   declarations: [SetServiceFeesPage]
 })
-export class SetServiceFeesPageModule {}
+export class SetServiceFeesPageModule { }
