@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+// import { MovieService, SearchType } from './../../services/movie.service';
 
 
 @Component({
@@ -9,14 +11,24 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class ConfirmRegisterPage implements OnInit {
 
+  results: Observable<any>;
+  searchTerm: string = '';
+  // type: SearchType = SearchType.all;
+
   constructor(public actionSheetController: ActionSheetController) { }
   subscriberList: any[] = [
-    {date: "07/01/2563", id: 60160330,prefix: "นาย", firstname: "กัณณภัต", lastname:"เพียรแก้ว"},
-    {date: "28/12/2562", id: 60160338,prefix: "นาง", firstname: "สาธิมาภรณ์", lastname:"นิรมิตวสุ"},
-    {date: "28/12/2562", id: 60160111,prefix: "นาย", firstname: "พัสกร", lastname:"ใชยะ"}
+    { date: "07/01/2563", id: 60160330, prefix: "นาย", firstname: "กัณณภัต", lastname: "เพียรแก้ว" },
+    { date: "28/12/2562", id: 60160338, prefix: "นาง", firstname: "สาธิมาภรณ์", lastname: "นิรมิตวสุ" },
+    { date: "28/12/2562", id: 60160111, prefix: "นาย", firstname: "พัสกร", lastname: "ใชยะ" }
 
   ];
+
   ngOnInit() {
+  }
+
+  searchChanged() {
+    // Call our service function which returns an Observable
+    // this.results = this.ConfirmRegisterService.searchData(this.searchTerm, this.type);
   }
 
   async presentActionSheet() {

@@ -8,6 +8,9 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding fullscreen>
+
+  <ion-searchbar [(ngModel)]="subscriberList" (ionChange)="searchChanged($event)"></ion-searchbar>
+
   <ion-list>
     <ion-card (click)="presentActionSheet()" *ngFor="let subscriber of subscriberList">
       <ion-card-content>
