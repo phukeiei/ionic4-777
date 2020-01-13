@@ -43,12 +43,6 @@ export class AppComponent implements OnInit {
           icon: 'information-circle-outline'
         },
         {
-          title: 'App Settings',
-          url: '/settings',
-          direct: 'forward',
-          icon: 'cog'
-        },
-        {
           title: 'Register',
           url: '/register-user',
           direct: 'forward',
@@ -65,6 +59,12 @@ export class AppComponent implements OnInit {
           url: '/edit-profile-swm',
           direct: 'forward',
           icon: 'md-hammer'
+        },
+        {
+          title: 'App Settings',
+          url: '/settings',
+          direct: 'forward',
+          icon: 'cog'
         }
       ];
     } else {

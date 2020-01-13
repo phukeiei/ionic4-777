@@ -13,6 +13,7 @@ export class HistoryServiceService {
   constructor(private http: HttpClient) { }
 
   public getDataByPsId(id=null) {
-    return this.http.get(`${this.url}/getDataByPsId/${id}`);
+    return this.http.get<any[]>(`${this.url}/getDataByPsId/${id}`);
   }
+
 }

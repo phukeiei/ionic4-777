@@ -7,13 +7,12 @@ import { SessionService } from "../../services/session/session.service";
   styleUrls: ['./history-service.page.scss'],
 })
 export class HistoryServicePage implements OnInit {
-  searchTerm: string;
   datetimeList: any = [];
 
   constructor(
-              public historyServiceService: HistoryServiceService,
-              public sessionService: SessionService
-             ) {
+    public historyServiceService: HistoryServiceService,
+    public sessionService: SessionService
+  ) {
   }
   ngOnInit() {
     this.getDataByPsId();
@@ -24,13 +23,8 @@ export class HistoryServicePage implements OnInit {
       console.log(this.datetimeList);
     });
   }
-  searchChanged() {
-    this.datetimeList = this.filterItems(this.searchTerm);
-  }
-  filterItems(searchTerm) {
-    return this.datetimeList.filter((item) => {
-      return item.TypeOfNotification.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-    });
+  searchChanged(event) {
+    console.log(event);
   }
 
 }

@@ -5,7 +5,8 @@ import {
   MenuController,
   ToastController,
   PopoverController,
-  ModalController } from '@ionic/angular';
+  ModalController
+} from '@ionic/angular';
 
 // Modals
 import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.page';
@@ -83,7 +84,7 @@ export class HomeResultsPage {
     changeLocation.present();
   }
 
-  async searchFilter () {
+  async searchFilter() {
     const modal = await this.modalCtrl.create({
       component: SearchFilterPage
     });
@@ -108,4 +109,16 @@ export class HomeResultsPage {
     return await popover.present();
   }
 
+  goToRegister() {
+    this.navCtrl.navigateForward('/register-user');
+  }
+  goToEdit() {
+    this.navCtrl.navigateForward('/edit-profile-swm');
+  }
+  goToHistory() {
+    this.navCtrl.navigateForward('/history-service');
+  }
+  goToAbout() {
+    this.navCtrl.navigateForward('/about');
+  }
 }
