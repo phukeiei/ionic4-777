@@ -6,14 +6,23 @@
     <ion-title>กำหนดค่าใช้บริการ</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content fullscreen>
+<ion-content>
 
-  <ion-segment>
-    <ion-segment-button checked>
-      <ion-label>การใช้บริการ</ion-label>
-    </ion-segment-button>
-    <ion-segment-button>
-      <ion-label>การสมัครสมาชิก</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+  <ion-tabs>
+
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="service-fee">
+        <ion-icon name="person"></ion-icon>
+        <ion-label>การใช้บริการ</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="membership-fee">
+        <ion-icon name="people"></ion-icon>
+        <ion-label>การสมัครสมาชิก</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+
+  </ion-tabs>
+  
 </ion-content>

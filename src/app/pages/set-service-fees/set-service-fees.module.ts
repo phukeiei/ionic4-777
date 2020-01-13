@@ -10,9 +10,37 @@ import { SetServiceFeesPage } from './set-service-fees.page';
 const routes: Routes = [
   {
     path: '',
-    component: SetServiceFeesPage
+    component: SetServiceFeesPage,
+    children: [
+      {
+        path: 'service-fee',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../service-fee/service-fee.module').then(m => m.ServiceFeePageModule)
+          }
+        ]
+      },
+      {
+        path: 'membership-fee',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../membership-fee/membership-fee.module').then(m => m.MembershipFeePageModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: '/set-service-fees/service-fee',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
+
 
 @NgModule({
   imports: [
