@@ -12,7 +12,7 @@
               <ion-text color="medium">
                 <h1><strong>พฤกษ์ เทพพิทักษ์</strong></h1>
               </ion-text>
-              <ion-text color="secondary">
+              <ion-text color="light">
                 <h3>
                   สมาชิก
                 </h3>
@@ -21,14 +21,14 @@
                 <a class="text08" tappable (click)="goToEditProgile()">
                   <ion-text color="medium">
                     <ion-icon name="contact"></ion-icon>
-                    <strong>Edit</strong>
+                    <strong>แก้ไข</strong>
                   </ion-text>
                 </a>
                 <ion-text color="secondary"> | </ion-text>
                 <a class="text08" tappable (click)="logout()">
                   <ion-text color="medium">
                     <ion-icon name="log-out"></ion-icon>
-                    <strong>logout</strong>
+                    <strong>ออก</strong>
                   </ion-text>
                 </a>
               </ion-menu-toggle>
@@ -40,12 +40,12 @@
 
       <ion-content class="bg-profile">
         <ion-list>
-          <ion-list-header color="dark">
+          <ion-list-header color="primary">
             <ion-label>Menu</ion-label>
           </ion-list-header>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerLink]="[p.url]" color="primary">
+            <ion-item [routerLink]="[p.url]" color="success">
               <ion-icon slot="start" [name]="p.icon" color="light"></ion-icon>
               <ion-label>
                 {{p.title}}

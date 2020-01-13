@@ -40,7 +40,7 @@ ion-item {
   }
   
   .bg-profile {
-    background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary))
+    background-image: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-success))
   }
   
   .bg-main {
@@ -113,7 +113,7 @@ ion-item {
   // Custom toolbar (overriding Shadow DOM)
   ion-toolbar {
     &.ion-color-primary {
-      --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
+      --ion-color-base: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-success)) !important;
     }
   }
   
@@ -126,7 +126,7 @@ ion-item {
   
   // style for auth pages
   .auth-page {
-    background-image: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+    background-image: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-success));
   
     .grid {
       padding: 0;
@@ -195,7 +195,7 @@ ion-item {
     ion-header {
       ion-toolbar {
         &.ion-color-dark {
-          --ion-color-base: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary)) !important;
+          --ion-color-base: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-success)) !important;
         }
       }
     }

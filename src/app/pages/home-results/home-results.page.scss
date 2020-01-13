@@ -9,9 +9,13 @@
     }
 
     ion-card {
+      --background: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-success));
         &.no-radius {
-            border-radius: 0;
+            border-radius: 0;            
         }
+    }
+    ion-icon {
+      color: white;
     }
 }
 

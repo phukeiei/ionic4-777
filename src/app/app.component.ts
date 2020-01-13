@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     this.initializeApp();
   }
   ngOnInit() {
-    if (this.sessionService.status == "") {this.sessionService.status = "1";}
+    if (this.sessionService.status == "") { this.sessionService.status = "1"; }
     if (this.sessionService.status == "1") {
       this.appPages = [
         {
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
           title: 'Register',
           url: '/register-user',
           direct: 'forward',
-          icon: 'person'
+          icon: 'md-person-add'
         },
         {
           title: 'History',
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
           title: 'Edit profile',
           url: '/edit-profile-swm',
           direct: 'forward',
-          icon: 'book'
+          icon: 'md-hammer'
         }
       ];
     } else {
