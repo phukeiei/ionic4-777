@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./service-fee.page.scss'],
 })
 export class ServiceFeePage implements OnInit {
-
+  customAlertOptions: any = {
+    translucent: true
+  };
+ 
   constructor() { }
 
   ngOnInit() {

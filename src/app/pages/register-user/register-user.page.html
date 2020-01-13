@@ -13,14 +13,17 @@
     <ion-slide>
       <img src="assets/img/money.png">
       <h4>ค่าสมัครสมาชิกสระว่ายน้ำ</h4>
-      <ion-label style="font-size: 14px;"><b> อายุต่ำกว่า {{scr_age_min}} ปี</b> สมัครสมาชิกครั้งละ {{scr_cost_min}} บาท/ปี</ion-label><br>
-      <ion-label style="font-size: 14px;"><b> อายุ {{scr_age_min}} ปีขึ้นไป</b> สมัครสมาชิกครั้งละ {{scr_cost_max}} บาท/ปี</ion-label>
+      <ion-label style="font-size: 14px;"><b> อายุต่ำกว่า {{scr_age_min}} ปี</b> สมัครสมาชิกครั้งละ {{scr_cost_min}}
+        บาท/ปี</ion-label><br>
+      <ion-label style="font-size: 14px;"><b> อายุ {{scr_age_min}} ปีขึ้นไป</b> สมัครสมาชิกครั้งละ {{scr_cost_max}}
+        บาท/ปี</ion-label>
       <br><br>
-      <ion-nav-bar class="bar-positive">
-      <ion-button fill="clear">สมัครสมาชิก <ion-icon slot="end" name="arrow-forward"></ion-icon>
-      </ion-nav-bar>
-      </ion-button>
-    </ion-slide> 
+      <ion-toolbar class="bar-positive">
+        <ion-button fill="clear">สมัครสมาชิก <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
+      </ion-toolbar>
+
+    </ion-slide>
 
     <ion-slide>
       <ion-list>
@@ -64,7 +67,8 @@
           <ion-label>คำนำหน้า<ion-text color="danger">*</ion-text>
           </ion-label>
           <ion-select>
-            <ion-select-option *ngFor="let prefix of prefixList" placeholder="เลือกคำนำหน้า" [value]="prefix">{{ prefix }}</ion-select-option>
+            <ion-select-option *ngFor="let prefix of prefixList" placeholder="เลือกคำนำหน้า" [value]="prefix">
+              {{ prefix }}</ion-select-option>
           </ion-select>
         </ion-item>
 
