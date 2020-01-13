@@ -14,13 +14,13 @@
     </div>
 
     <!-- Login form -->
-    <form [formGroup]="onLoginForm" class="list-form">
+    <div [formGroup]="onLoginForm" class="list-form">
       <ion-item no-padding class="animated fadeInUp">
         <ion-label position="floating">
           <ion-icon name="username" item-start></ion-icon>
           รหัสผู้ใช้
         </ion-label>
-        <ion-input color="secondary" type="username" formControlName="username"></ion-input>
+        <ion-input color="secondary" type="username" formControlName="username" [(ngModel)]="username"></ion-input>
       </ion-item>
       <p ion-text class="text08"
         *ngIf="onLoginForm.get('username').touched && onLoginForm.get('username').hasError('required')">
@@ -34,7 +34,7 @@
           <ion-icon name="lock" item-start></ion-icon>
           รหัสผ่าน
         </ion-label>
-        <ion-input color="secondary" type="password" formControlName="password"></ion-input>
+        <ion-input color="secondary" type="password" formControlName="password" [(ngModel)]="password"></ion-input>
       </ion-item>
       <p ion-text color="warning" class="text08"
         *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
@@ -42,16 +42,16 @@
           จำเป็นต้องใส่ข้อมูล
         </ion-text>
       </p>
-    </form>
+    </div>
 
-    <p text-right tappable (click)="forgotPass()" class="paz">
-      <ion-text color="light">
+    <p text-right class="paz">
+      <ion-text color="light" tappable (click)="forgotPass()">
         <strong>ลืมรหัสผ่าน?</strong>
       </ion-text>
     </p>
 
     <div>
-      <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="goToHome()"
+      <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="this.login()"
         [disabled]="!onLoginForm.valid" tappable>
         <ion-icon name="log-in"></ion-icon>
         เข้าสู่ระบบ

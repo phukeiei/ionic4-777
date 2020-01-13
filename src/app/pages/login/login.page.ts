@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
-import { AuthService } from 'src/app/services/auth.service';
-// import { Router } from '@angular/router';
+
+import { LoginService } from '../../services/login/login.service';
+import { SessionService } from "../../services/session/session.service";
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,10 +13,10 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  user = {
-    username: '',
-    password: ''
-  };
+
+  public username = '';
+  public password = '';
+  public user_iden: any;
 
   public onLoginForm: FormGroup;
 
@@ -24,8 +27,10 @@ export class LoginPage implements OnInit {
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     private formBuilder: FormBuilder,
-    private auth: AuthService
-    // private router: Router
+    private loginService: LoginService,
+    private sessionService:SessionService,
+
+    private router: Router
   ) { }
 
   ionViewWillEnter() {
@@ -44,25 +49,35 @@ export class LoginPage implements OnInit {
     });
   }
 
-  // onClickloginBtn(){
-    // alert("Username" + this.user.username);
-    // alert("Password" + this.user.password);
-  // }
-
-  signIn() {
-    this.auth.signIn(this.user).subscribe(user => {
-      let role = user['role'];
-      if (role == 'ADMIN') {
-        // this.router.navigateByUrl('/admin-dashboard');
-        this.navCtrl.navigateRoot('/admin-dashboard');
-      }
-      else if (role == 'USER') {
-        // this.router.navigateByUrl('/home-results');
-        this.navCtrl.navigateRoot('/home-results');
+  public login()
+  {
+    let checkUser = this.loginService.checkUser(this.username, this.password);
+    checkUser.subscribe(result => {
+      if (!result) {
+        this.presentAlert();
+      } else {
+        this.user_iden = result;
+        this.sessionService.setSession(
+          this.username,
+          this.password,
+          this.user_iden.status,
+          this.user_iden.id
+        );
+        console.log(this.sessionService.getSession());
+        this.goToHome();
       }
     });
   }
 
+  async presentAlert() {
+    const alert = await this.alertCtrl.create({
+      header: 'รหัสผู้ใช้หรือรหัสผ่านไม่ถูกต้อง',
+      message: 'กรุณากรอกรหัสผู้ใช้และรหัสผ่านให้ถูกต้อง',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
   async forgotPass() {
     const alert = await this.alertCtrl.create({
       header: 'ลืมรหัสผ่าน?',
