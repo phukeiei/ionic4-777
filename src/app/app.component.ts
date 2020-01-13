@@ -101,12 +101,6 @@ export class AppComponent {
         url: '/set-service-fees',
         direct: 'forward',
         icon: 'book'
-      },
-      {
-        title: 'service fees (Admin mode)',
-        url: '/service-fee',
-        direct: 'forward',
-        icon: 'book'
       }
     ];
 

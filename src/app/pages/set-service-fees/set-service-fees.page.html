@@ -6,23 +6,14 @@
     <ion-title>กำหนดค่าใช้บริการ</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content fullscreen>
 
-<ion-content padding>
-  <ion-tabs>
-    <ion-tab-bar slot="top">
-      <ion-tab-button tab="register-user" active>
-        <ion-icon name="contacts"></ion-icon>
-        <ion-label>ค่าเข้าใช้บริการ
-        </ion-label>
-        <ion-badge>6</ion-badge>
-      </ion-tab-button>
-
-      <ion-tab-button tab="registering">
-        <ion-icon name="calendar"></ion-icon>
-        <ion-label>ค่าสมัครสมาชิก</ion-label>
-      </ion-tab-button>
-
-    </ion-tab-bar>
-  </ion-tabs>
-  
+  <ion-segment>
+    <ion-segment-button checked>
+      <ion-label>การใช้บริการ</ion-label>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-label>การสมัครสมาชิก</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </ion-content>
