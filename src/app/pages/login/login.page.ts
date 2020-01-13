@@ -38,10 +38,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
-    // if(this.sessionService.check()){
-    //   // this.goToHome();
-    //   console.log(this.sessionService.check());
-    // }
+
     this.onLoginForm = this.formBuilder.group({
       'username': [null, Validators.compose([
         Validators.required
@@ -66,7 +63,7 @@ export class LoginPage implements OnInit {
           this.user_iden.status,
           this.user_iden.id
         );
-        // console.log(this.sessionService.getSession());
+        console.log(this.sessionService.getSession());
         this.goToHome();
       }
     });

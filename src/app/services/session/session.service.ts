@@ -42,21 +42,5 @@ export class SessionService {
     this.password = pas;
     this.status = sta;
     this.userId = id;
-
-    let data = {
-      username: this.username,
-      password: this.password,
-      userId: this.userId,
-      status: this.status
-    }
-    return this.http.post(`${this.url}`, data)
-  }
-
-  public check() {
-    return this.http.get(`${this.url}`);
-  }
-
-  public logout() {
-    return this.http.delete(`${this.url}`);
   }
 }

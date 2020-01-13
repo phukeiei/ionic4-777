@@ -113,8 +113,7 @@ export class AppComponent implements OnInit {
     this.navCtrl.navigateForward('/edit-profile');
   }
 
-  async logout() {
-    await this.sessionService.logout();
-    await this.navCtrl.navigateRoot('/');
+  logout() {
+    this.navCtrl.navigateRoot('/');
   }
 }
