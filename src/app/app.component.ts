@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
       this.appPages = [
         {
           title: 'หน้าแรก',
-          url: '/home-results',
+          url: '/home-admin',
           direct: 'root',
           icon: 'home'
         },

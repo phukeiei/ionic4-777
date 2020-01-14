@@ -107,17 +107,10 @@ export class HomeAdminPage {
       return await popover.present();
     }
   
-    goToRegister() {
-      this.navCtrl.navigateForward('/register-user');
+    goToConfirmRegister() {
+      this.navCtrl.navigateForward('/confirm-register');
     }
-    goToEdit() {
-      this.navCtrl.navigateForward('/edit-profile-swm');
+    goToSetServiceFees() {
+      this.navCtrl.navigateForward('/set-service-fees');
     }
-    goToHistory() {
-      this.navCtrl.navigateForward('/history-service');
-    }
-    goToAbout() {
-      this.navCtrl.navigateForward('/about');
-    }
-
 }

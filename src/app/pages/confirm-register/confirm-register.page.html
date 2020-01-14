@@ -12,11 +12,11 @@
   <ion-searchbar animated (ionChange)="searchChanged($event)" placeholder='ค้นหา'></ion-searchbar>
 
   <ion-list>
-    <ion-card (click)="presentActionSheet()" *ngFor="let subscriber of subscriberList">
+    <ion-card (click)="presentActionSheet(subscriber.su_id)" *ngFor="let subscriber of subscriberList">
       <ion-card-content>
         <ion-row>
           <ion-col size="11">
-            {{subscriber.date}}
+            {{subscriber.su_create_date}}
           </ion-col>
           <ion-col size="1">
             <div>
@@ -28,12 +28,12 @@
         <ion-row>
           <ion-col size="4">
             <h4>
-              <ion-text color="dark">{{subscriber.id}}</ion-text>
+              <ion-text color="dark">{{subscriber.su_code}}</ion-text>
             </h4>
           </ion-col>
           <ion-col size="8">
             <p>
-              <ion-text color="dark">{{subscriber.prefix}}{{subscriber.firstname}} {{subscriber.lastname}}</ion-text>
+              <ion-text color="dark">{{subscriber.pf_name}}{{subscriber.ps_fname}} {{subscriber.ps_lname}}</ion-text>
             </p>
           </ion-col>
         </ion-row>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 // import { MovieService, SearchType } from './../../services/movie.service';
-
+import { ConfirmRegisterService } from "../../services/confirm-register/confirm-register.service";
 
 @Component({
   selector: 'app-confirm-register',
@@ -15,15 +15,13 @@ export class ConfirmRegisterPage implements OnInit {
   searchTerm: string = '';
   // type: SearchType = SearchType.all;
 
-  constructor(public actionSheetController: ActionSheetController) { }
-  subscriberList: any[] = [
-    { date: "07/01/2563", id: 60160330, prefix: "นาย", firstname: "กัณณภัต", lastname: "เพียรแก้ว" },
-    { date: "28/12/2562", id: 60160338, prefix: "นาง", firstname: "สาธิมาภรณ์", lastname: "นิรมิตวสุ" },
-    { date: "28/12/2562", id: 60160111, prefix: "นาย", firstname: "พัสกร", lastname: "ใชยะ" }
-
-  ];
+  constructor(public actionSheetController: ActionSheetController,
+              public navCtrl: NavController,
+              public confirmRegisterService: ConfirmRegisterService) { }
+  subscriberList: any = [];
 
   ngOnInit() {
+    this.getUserListByStatusId(1);
   }
 
   searchChanged() {
@@ -31,7 +29,25 @@ export class ConfirmRegisterPage implements OnInit {
     // this.results = this.ConfirmRegisterService.searchData(this.searchTerm, this.type);
   }
 
-  async presentActionSheet() {
+  public getUserListByStatusId(id=null) {
+    this.confirmRegisterService.getUserListByStatusId(id).subscribe(res => {
+      this.subscriberList = res;
+    });
+  }
+
+  public deleteById(id=null) {
+    this.confirmRegisterService.deleteById(id).subscribe(res => {
+      this.getUserListByStatusId(1);
+    });
+  }
+
+  public updateStatusById(id=null, ssId=null) {
+    this.confirmRegisterService.updateStatusById(id, ssId).subscribe(res => {
+      this.getUserListByStatusId(1);
+    });
+  }
+
+  async presentActionSheet(id) {
     const actionSheet = await this.actionSheetController.create({
       header: 'ต้องการอนุมัติหรือไม่',
       buttons: [{
@@ -39,6 +55,7 @@ export class ConfirmRegisterPage implements OnInit {
         icon: 'person-add',
         handler: () => {
           console.log('กดอนุมัติ');
+          this.updateStatusById(id, 2);
         }
       }, {
         text: 'ไม่อนุมัติ',
@@ -46,6 +63,7 @@ export class ConfirmRegisterPage implements OnInit {
         icon: 'trash',
         handler: () => {
           console.log('กดลบ');
+          this.deleteById(id);
         }
       }, {
         text: 'ยกเลิก',
@@ -57,6 +75,7 @@ export class ConfirmRegisterPage implements OnInit {
       }]
     });
     await actionSheet.present();
+    await this.getUserListByStatusId(1);
   }
 
 }
