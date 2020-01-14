@@ -8,11 +8,35 @@
 </ion-header>
 
 <ion-content>
+
   <ion-searchbar [formControl]="searchControl"></ion-searchbar>
 
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      {{ item.title }}
+    <ion-item>
+      <ion-label>เลือกประเภทผู้ใช้</ion-label>
+      <ion-select [interfaceOptions]="customAlertOptions" interface="alert" placeholder="ประเภทผู้ใช้">
+        <ion-select-option value="member" selected>สมาชิก</ion-select-option>
+        <ion-select-option value="ban">ตัดสิทธิ์</ion-select-option>
+        <ion-select-option value="expire">หมดอายุ</ion-select-option>
+      </ion-select>
     </ion-item>
   </ion-list>
+
+  <ion-card (click)="presentActionSheet()">
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="4">
+          <!-- <h4>
+            <ion-text color="dark">{{user.su_code}}</ion-text>
+          </h4> -->
+        </ion-col>
+        <ion-col size="8">
+          <!-- <p>
+            <ion-text color="dark">{{user.pf_name}} {{user.ps_fname}} {{user.ps_lname}}</ion-text>
+          </p> -->
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

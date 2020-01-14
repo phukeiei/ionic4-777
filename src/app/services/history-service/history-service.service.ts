@@ -16,4 +16,5 @@ export class HistoryServiceService {
     return this.http.get<any[]>(`${this.url}/getDataByPsId/${id}`);
   }
 
+
 }
