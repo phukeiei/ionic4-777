@@ -22,8 +22,16 @@ export class RegisterUserService {
     return this.http.get(`${this.hrPersonUrl}/${id}`);
   }
 
+  public getCostRegisterByAge(age=null) {
+    return this.http.get(`${this.swmCostRegisterUrl}/getCostRegisterByAge/${age}`);
+  }
+
   public getActiveCostRegister() {
     return this.http.get(`${this.swmCostRegisterUrl}`);
+  }
+
+  public getLastUserCode() {
+    return this.http.get(`${this.swmUserurl}/getLastUserCode`);
   }
 
   public getUserDataByPsId(id = null) {
