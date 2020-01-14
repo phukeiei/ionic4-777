@@ -16,7 +16,10 @@ import { SessionService } from "./services/session/session.service";
 export class AppComponent implements OnInit {
 
   public appPages: Array<Pages>;
-  public ck :any
+  public ck :any;
+
+  public accountName: any;
+  public status: string;
 
   constructor(
     private platform: Platform,

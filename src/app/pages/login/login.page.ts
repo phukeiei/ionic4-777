@@ -8,6 +8,8 @@ import { SessionService } from "../../services/session/session.service";
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
+import { RegisterUserService } from "../../services/register-user/register-user.service";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -31,6 +33,7 @@ export class LoginPage implements OnInit {
     private loginService: LoginService,
     private sessionService:SessionService,
     private appComponent:AppComponent,
+    public personService :RegisterUserService,
 
     private router: Router
   ) { }
@@ -73,14 +76,21 @@ export class LoginPage implements OnInit {
         this.sessionService.status = result.status
         console.log(result.status)
         this.appComponent.ck = result.status;
+
+        this.personService.getPersonDataById(result.id).subscribe(res => {
+          this.appComponent.accountName = res[0].full_name;
+        });
+
         this.appComponent.ngOnInit()
         this.appComponent.initializeApp();
         this.sessionService.userId = result.id
         this.sessionService.username = this.username
         this.sessionService.reState = true;
         if(this.appComponent.ck=="1"){
+          this.appComponent.status = "สมาชิก";
           this.navCtrl.navigateRoot('/home-results');
         }else if(this.appComponent.ck=="2"){
+          this.appComponent.status = "ผู้ดูแลระบบ";
           this.navCtrl.navigateRoot('/home-admin');
         }else{
           this.navCtrl.navigateRoot('/erer');
