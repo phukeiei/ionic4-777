@@ -16,13 +16,14 @@ const routes: Routes = [
   { path: 'register-user', loadChildren: './pages/register-user/register-user.module#RegisterUserPageModule' },
   { path: 'confirm-register', loadChildren: './pages/confirm-register/confirm-register.module#ConfirmRegisterPageModule' },
   { path: 'history-service', loadChildren: './pages/history-service/history-service.module#HistoryServicePageModule' },
-  // { path: 'manage-user', loadChildren: './pages/manage-user/manage-user.module#ManageUserPageModule' },
+  { path: 'manage-user', loadChildren: './pages/manage-user/manage-user.module#ManageUserPageModule' },
   // { path: 'edit-profile-admin', loadChildren: './pages/modal/edit-profile-admin/edit-profile-admin.module#EditProfileAdminPageModule' },
   // { path: 'history-admin', loadChildren: './pages/history-admin/history-admin.module#HistoryAdminPageModule' },
   // { path: 'user-tab', loadChildren: './pages/tabs/user-tab/user-tab.module#UserTabPageModule' },
   // { path: 'admin-tab', loadChildren: './pages/tabs/admin-tab/admin-tab.module#AdminTabPageModule' },
   { path: 'edit-profile-swm', loadChildren: './pages/edit-profile-swm/edit-profile-swm.module#EditProfileSwmPageModule' },
-  { path: 'set-service-fees', loadChildren: './pages/set-service-fees/set-service-fees.module#SetServiceFeesPageModule' },  { path: 'home-admin', loadChildren: './pages/home-admin/home-admin.module#HomeAdminPageModule' }
+  { path: 'set-service-fees', loadChildren: './pages/set-service-fees/set-service-fees.module#SetServiceFeesPageModule' },
+  { path: 'home-admin', loadChildren: './pages/home-admin/home-admin.module#HomeAdminPageModule' }
 
 ];
 
