@@ -3,9 +3,10 @@
   <ion-list>
     <ion-item>
       <ion-label>เลือกประเภทผู้ใช้</ion-label>
-      <ion-select [interfaceOptions]="customAlertOptions" interface="alert" placeholder="ประเภทผู้ใช้">
-        <ion-select-option value="genaral" selected>ผู้ใช้ทั่วไป</ion-select-option>
-        <ion-select-option value="member">สมาชิก</ion-select-option>
+      <ion-select [interfaceOptions]="customAlertOptions" interface="alert" placeholder="ประเภทผู้ใช้"
+        [(ngModel)]="option" (ionChange)="optionalCost()">
+        <ion-select-option [selected] value="1">ผู้ใช้ทั่วไป</ion-select-option>
+        <ion-select-option value="2">สมาชิก</ion-select-option>
       </ion-select>
     </ion-item>
 
@@ -15,27 +16,30 @@
       <ion-label slot="end">สถานะ</ion-label>
     </ion-item>
 
-  </ion-list> 
+  </ion-list>
 
-  <ion-card>
+  <ion-card *ngFor="let Data of displayData">
     <ion-card-content>
       <ion-grid>
         <ion-row>
-          <ion-col size="6">
-            <ion-row>อายุ 0 ถึง 17 ปี
-            </ion-row>
-            <ion-row>อายุ 18 ถึง 99 ปี
-            </ion-row>
+          <ion-col size="10">
+            <ion-card-content *ngFor="let item of Data">
+              <ion-row>
+                <ion-col size="7">
+                  <ion-row>อายุ {{item.scp_age_min}} ถึง {{item.scp_age_max}} ปี</ion-row>
+                </ion-col>
+                <ion-col size="5">
+                  <ion-row>{{item.scp_cost}} บาท</ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
           </ion-col>
-
-          <ion-col size="4">
-            <ion-row>200 บาท
-            </ion-row>
-            <ion-row>400 บาท</ion-row>
+          <ion-col size="2" style="display: block; margin: auto;" *ngIf="Data[0].scp_is_active == 'Y'">
+            <ion-toggle color="primary" checked (click)="updateIsActiveByReference(Data[0].scp_reference)">
+            </ion-toggle>
           </ion-col>
-
-          <ion-col size="2" style="display: block; margin: auto;">
-            <ion-toggle color="primary"></ion-toggle>
+          <ion-col size="2" style="display: block; margin: auto;" *ngIf="Data[0].scp_is_active == 'N'">
+            <ion-toggle color="primary" (click)="updateIsActiveByReference(Data[0].scp_reference)"></ion-toggle>
           </ion-col>
         </ion-row>
       </ion-grid>
