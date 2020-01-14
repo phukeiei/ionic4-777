@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { DataService  } from '../../services/Data/data.service';
+import { DataService } from '../../services/Data/data.service';
 import { debounceTime } from "rxjs/operators";
 import { ActionSheetController, NavController } from '@ionic/angular';
-
+import { ManageUserService } from "../../services/manage-user/manage-user.service";
 @Component({
   selector: 'app-manage-user',
   templateUrl: './manage-user.page.html',
@@ -12,16 +12,17 @@ import { ActionSheetController, NavController } from '@ionic/angular';
 export class ManageUserPage implements OnInit {
   public searchControl: FormControl;
   public items: any;
-userList:any[]=[
-  {su_code:"60160344", pf_name:"นาย" ,ps_fname:"พฤกษ์", ps_lname:"เทพพิทักษ์", status:"สมาชิก"},
-  {su_code:"60160345", pf_name:"นาย" ,ps_fname:"พฤกษ์", ps_lname:"เทพพิทักษ์", status:"ตัดสิทธิ์"},
-  {su_code:"60160346", pf_name:"นาย" ,ps_fname:"พฤกษ์", ps_lname:"เทพพิทักษ์", status:"หมดอายุ"}
-]
-  constructor(private dataService: DataService ,private actionSheetController:ActionSheetController) {
+  userList: any = [];
+
+  statusId: Number = 2;
+  constructor(private dataService: DataService, private actionSheetController: ActionSheetController,
+    public manageUserService: ManageUserService) {
     this.searchControl = new FormControl();
   }
 
   ngOnInit() {
+    this.getUserListByStatusId(2);
+
     this.setFilteredItems("");
 
     this.searchControl.valueChanges
@@ -31,19 +32,31 @@ userList:any[]=[
       });
   }
 
+  public getUserListByStatusId(id) {
+    this.manageUserService.getUserListByStatusId(id).subscribe(res => {
+      this.userList = res;
+    });
+  }
+
+  public updateStatusById(id, ssId) {
+    this.manageUserService.updateStatusById(id, ssId).subscribe(res => {
+      this.getUserListByStatusId(this.statusId);
+    });
+  }
+
   setFilteredItems(searchTerm) {
     this.items = this.dataService.filterItems(searchTerm);
   }
 
-  async presentActionSheet() {
+  async presentActionSheet(id) {
     const actionSheet = await this.actionSheetController.create({
       header: 'ต้องการเปลี่ยนสถานะหรือไม่',
-      subHeader: 'สถานะเดิม : สมาชิก',
       buttons: [{
         text: 'สมาชิก',
         icon: 'person-add',
         handler: () => {
           console.log('กดอนุมัติ');
+          this.updateStatusById(id, 2);
         }
       }, {
         text: 'ตัดสิทธิ์',
@@ -51,9 +64,16 @@ userList:any[]=[
         icon: 'backspace',
         handler: () => {
           console.log('กดลบ');
+          this.updateStatusById(id, 3);
         }
       }, {
         text: 'หมดอายุ',
+        icon: 'clock',
+        handler: () => {
+          this.updateStatusById(id, 4);
+        }
+      }, {
+        text: 'ยกเลิก',
         icon: 'close',
         role: 'cancel',
         handler: () => {

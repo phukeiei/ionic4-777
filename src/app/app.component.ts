@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
           icon: 'options'
         },
         {
-          title: 'จัดการข้อมูลผู้ใช้',
+          title: 'แก้ไขสถานะสมาชิก',
           url: '/manage-user',
           direct: 'forward',
           icon: 'paper'
