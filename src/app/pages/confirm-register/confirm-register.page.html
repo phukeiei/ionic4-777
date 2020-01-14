@@ -9,7 +9,7 @@
 </ion-header>
 <ion-content padding fullscreen>
 
-  <ion-searchbar [(ngModel)]="subscriberList" (ionChange)="searchChanged($event)" placeholder='ค้นหา'></ion-searchbar>
+  <ion-searchbar animated (ionChange)="searchChanged($event)" placeholder='ค้นหา'></ion-searchbar>
 
   <ion-list>
     <ion-card (click)="presentActionSheet()" *ngFor="let subscriber of subscriberList">
