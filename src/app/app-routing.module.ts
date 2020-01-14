@@ -22,7 +22,8 @@ const routes: Routes = [
   // { path: 'user-tab', loadChildren: './pages/tabs/user-tab/user-tab.module#UserTabPageModule' },
   // { path: 'admin-tab', loadChildren: './pages/tabs/admin-tab/admin-tab.module#AdminTabPageModule' },
   { path: 'edit-profile-swm', loadChildren: './pages/edit-profile-swm/edit-profile-swm.module#EditProfileSwmPageModule' },
-  { path: 'set-service-fees', loadChildren: './pages/set-service-fees/set-service-fees.module#SetServiceFeesPageModule' }
+  { path: 'set-service-fees', loadChildren: './pages/set-service-fees/set-service-fees.module#SetServiceFeesPageModule' },  { path: 'home-admin', loadChildren: './pages/home-admin/home-admin.module#HomeAdminPageModule' }
+
 ];
 
 @NgModule({

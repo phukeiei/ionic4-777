@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
+import { AppComponent } from "./../../app.component";
 
 import { LoginService } from '../../services/login/login.service';
 import { SessionService } from "../../services/session/session.service";
@@ -29,6 +30,7 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     private sessionService:SessionService,
+    private appComponent:AppComponent,
 
     private router: Router
   ) { }
@@ -38,6 +40,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    
     // if(this.sessionService.check()){
     //   // this.goToHome();
     //   console.log(this.sessionService.check());
@@ -56,6 +59,7 @@ export class LoginPage implements OnInit {
   {
     let checkUser = this.loginService.checkUser(this.username, this.password);
     checkUser.subscribe(result => {
+      console.log(result.status)
       if (!result) {
         this.presentAlert();
       } else {
@@ -66,8 +70,22 @@ export class LoginPage implements OnInit {
           this.user_iden.status,
           this.user_iden.id
         );
-        // console.log(this.sessionService.getSession());
-        this.goToHome();
+        this.sessionService.status = result.status
+        console.log(result.status)
+        this.appComponent.ck = result.status;
+        this.appComponent.ngOnInit()
+        this.appComponent.initializeApp();
+        this.sessionService.userId = result.id
+        this.sessionService.username = this.username
+        this.sessionService.reState = true;
+        if(this.appComponent.ck=="1"){
+          this.navCtrl.navigateRoot('/home-results');
+        }else if(this.appComponent.ck=="2"){
+          this.navCtrl.navigateRoot('/home-admin');
+        }else{
+          this.navCtrl.navigateRoot('/erer');
+        }
+        // this.goToHome();
       }
     });
   }

@@ -16,6 +16,7 @@ import { SessionService } from "./services/session/session.service";
 export class AppComponent implements OnInit {
 
   public appPages: Array<Pages>;
+  public ck :any
 
   constructor(
     private platform: Platform,
@@ -24,59 +25,85 @@ export class AppComponent implements OnInit {
     public navCtrl: NavController,
     private sessionService: SessionService
   ) {
+    console.log("app com work")
     this.initializeApp();
+   
   }
   ngOnInit() {
-    this.appPages = [
-      {
-        title: 'Home',
-        url: '/home-results',
-        direct: 'root',
-        icon: 'home'
-      },
-      {
-        title: 'About',
-        url: '/about',
-        direct: 'forward',
-        icon: 'information-circle-outline'
-      },
-      {
-        title: 'Register',
-        url: '/register-user',
-        direct: 'forward',
-        icon: 'md-person-add'
-      },
-      {
-        title: 'History',
-        url: '/history-service',
-        direct: 'forward',
-        icon: 'document'
-      },
-      {
-        title: 'Edit profile',
-        url: '/edit-profile-swm',
-        direct: 'forward',
-        icon: 'md-hammer'
-      },
-      {
-        title: 'Confirm Register',
-        url: '/confirm-register',
-        direct: 'forward',
-        icon: 'person-add'
-      },
-      {
-        title: 'Set service fees',
-        url: '/set-service-fees',
-        direct: 'forward',
-        icon: 'book'
-      },
-      {
-        title: 'App Settings',
-        url: '/settings',
-        direct: 'forward',
-        icon: 'cog'
-      }
-    ];
+    console.log("in ng on it")
+    if (this.ck == "1") {
+      console.log("in 1")
+      this.appPages = [
+        {
+          title: 'หน้าแรก',
+          url: '/home-results',
+          direct: 'root',
+          icon: 'home'
+        },
+        {
+          title: 'เกี่ยวกับ',
+          url: '/about',
+          direct: 'forward',
+          icon: 'information-circle-outline'
+        },
+        {
+          title: 'สมัครสมาชิก',
+          url: '/register-user',
+          direct: 'forward',
+          icon: 'md-person-add'
+        },
+        {
+          title: 'ประวัติใช้บริการ',
+          url: '/history-service',
+          direct: 'forward',
+          icon: 'document'
+        },
+        {
+          title: 'แก้ไขข้อมูล',
+          url: '/edit-profile-swm',
+          direct: 'forward',
+          icon: 'build'
+        },
+        {
+          title: 'ตั้งค่า',
+          url: '/settings',
+          direct: 'forward',
+          icon: 'cog'
+        }
+      ];
+    } else if (this.ck == "2") {
+      console.log("in 1")
+
+      this.appPages = [
+        {
+          title: 'หน้าแรก',
+          url: '/home-results',
+          direct: 'root',
+          icon: 'home'
+        },
+        {
+          title: 'ยืนยันการสมัครสมาชิก',
+          url: '/confirm-register',
+          direct: 'forward',
+          icon: 'person-add'
+        },
+        {
+          title: 'กำหนดค่าใช้บริการ',
+          url: '/set-service-fees',
+          direct: 'forward',
+          icon: 'options'
+        },
+        {
+          title: 'ตั้งค่า',
+          url: '/settings',
+          direct: 'forward',
+          icon: 'cog'
+        }
+      ];
+    }else{
+      console.log("mot 1 2")
+    }
+
   }
   initializeApp() {
     this.platform.ready().then(() => {

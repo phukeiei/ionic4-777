@@ -9,7 +9,7 @@
               <img src="assets/img/avatar.jpeg">
             </ion-avatar>
             <ion-label>
-              <ion-text color="medium">
+              <ion-text color="light">
                 <h1><strong>พฤกษ์ เทพพิทักษ์</strong></h1>
               </ion-text>
               <ion-text color="light">
@@ -19,14 +19,14 @@
               </ion-text>
               <ion-menu-toggle class="mto" auto-hide="false">
                 <a class="text08" tappable (click)="goToEditProgile()">
-                  <ion-text color="medium">
+                  <ion-text color="light">
                     <ion-icon name="contact"></ion-icon>
                     <strong>แก้ไข</strong>
                   </ion-text>
                 </a>
                 <ion-text color="secondary"> | </ion-text>
                 <a class="text08" tappable (click)="this.logout()">
-                  <ion-text color="medium">
+                  <ion-text color="light">
                     <ion-icon name="log-out"></ion-icon>
                     <strong>ออก</strong>
                   </ion-text>
@@ -41,7 +41,7 @@
       <ion-content class="bg-profile">
         <ion-list>
           <ion-list-header color="primary">
-            <ion-label>Menu</ion-label>
+            <ion-label>เมนู</ion-label>
           </ion-list-header>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">

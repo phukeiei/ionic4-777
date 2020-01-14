@@ -14,7 +14,7 @@ export class SessionService {
   public password = '';
   public status = '';
   public appId: Number;
-  public reState: Boolean;
+  public reState: any;
   public regId: any;
   public crsId: any;
   public editTab: Boolean;
