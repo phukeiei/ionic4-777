@@ -94,6 +94,12 @@ export class AppComponent implements OnInit {
           icon: 'options'
         },
         {
+          title: 'จัดการข้อมูล',
+          url: '/manage-user',
+          direct: 'forward',
+          icon: 'cog'
+        },
+        {
           title: 'ตั้งค่า',
           url: '/settings',
           direct: 'forward',
