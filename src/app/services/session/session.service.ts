@@ -43,13 +43,11 @@ export class SessionService {
     this.status = sta;
     this.userId = id;
 
-    let data = {
-      username: this.username,
-      password: this.password,
-      userId: this.userId,
-      status: this.status
-    }
-    return this.http.post(`${this.url}`, data)
+    // let data = {
+    //   username: this.username,
+    //   password: this.password
+    // }
+    // return this.http.post(`${this.url}`, data)
   }
 
   public check() {

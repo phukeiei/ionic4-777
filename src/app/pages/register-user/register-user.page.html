@@ -13,9 +13,9 @@
     <ion-slide>
       <ion-icon style="font-size: 280px;" color="primary" name="aperture"></ion-icon>
       <h4>ค่าสมัครสมาชิกสระว่ายน้ำ</h4>
-      <ion-label style="font-size: 14px;"><b> อายุต่ำกว่า {{scr_age_min}} ปี</b> สมัครสมาชิกครั้งละ {{scr_cost_min}}
+      <ion-label style="font-size: 14px;"><b> อายุต่ำกว่า {{age_costList[0].scr_age_max + 1}} ปี</b> สมัครสมาชิกครั้งละ {{age_costList[0].scr_cost}}
         บาท/ปี</ion-label><br>
-      <ion-label style="font-size: 14px;"><b> อายุ {{scr_age_min}} ปีขึ้นไป</b> สมัครสมาชิกครั้งละ {{scr_cost_max}}
+      <ion-label style="font-size: 14px;"><b> อายุ {{age_costList[1].scr_age_min}} ปีขึ้นไป</b> สมัครสมาชิกครั้งละ {{age_costList[1].scr_cost}}
         บาท/ปี</ion-label>
       <br><br>
       <ion-toolbar class="bar-positive">
@@ -32,11 +32,11 @@
         </ion-list-header>
         <ion-item>
           <ion-label>
-            <h3>ชื่อ {{ps_pf_id}}{{ps_fname}} {{ps_lname}}</h3>
-            <h3>เกิดวันที่ {{su_birthday}}</h3>
-            <h3>ที่อยู่ {{psd_addcur_no}} ต.{{psd_addcur_dist_id}}</h3>
-            <h3>อ.{{psd_addcur_amph_id}} จ.{{psd_addcur_pv_id}}</h3>
-            <h3>รหัสไปรษณีย์ {{psd_addcur_zipcode}}</h3>
+            <h3>ชื่อ {{personData.full_name}}</h3>
+            <h3>เกิดวันที่ {{personData.psd_birthdate}}</h3>
+            <h3>ที่อยู่ {{personData.psd_addcur_no}} ต.{{personData.dist_name}}</h3>
+            <h3>อ.{{personData.amph_name}} จ.{{personData.pv_name}}</h3>
+            <h3>รหัสไปรษณีย์ {{personData.psd_addcur_zipcode}}</h3>
           </ion-label>
         </ion-item>
       </ion-list>
@@ -48,13 +48,12 @@
         <ion-item>
           <ion-label position="stacked">อาชีพ<ion-text color="danger">*</ion-text>
           </ion-label>
-          <ion-input type="text" placeholder="กรอกอาชีพ"></ion-input>
+          <ion-input type="text" placeholder="กรอกอาชีพ" [(ngModel)]="su_work"></ion-input>
         </ion-item>
-
         <ion-item>
           <ion-label position="stacked">สถานที่ทำงาน/ศึกษา<ion-text color="danger">*</ion-text>
           </ion-label>
-          <ion-input type="text" placeholder="กรอกสถานที่ทำงาน/ศึกษา"></ion-input>
+          <ion-input type="text" placeholder="กรอกสถานที่ทำงาน/ศึกษา" [(ngModel)]="su_workplace"></ion-input>
         </ion-item>
       </ion-list>
 
@@ -66,30 +65,29 @@
         <ion-item>
           <ion-label>คำนำหน้า<ion-text color="danger">*</ion-text>
           </ion-label>
-          <ion-select>
-            <ion-select-option *ngFor="let prefix of prefixList" placeholder="เลือกคำนำหน้า" [value]="prefix">
-              {{ prefix }}</ion-select-option>
+          <ion-select [(ngModel)]="su_contact_pf_id">
+            <ion-select-option *ngFor="let prefix of prefixList" placeholder="เลือกคำนำหน้า" [value]="prefix.pf_id">
+              {{ prefix.pf_name }}</ion-select-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">ชื่อ<ion-text color="danger">*</ion-text>
           </ion-label>
-          <ion-input type="text" placeholder="กรอกชื่อจริง"></ion-input>
+          <ion-input type="text" placeholder="กรอกชื่อจริง" [(ngModel)]="su_contact_fname"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">นามสกุล<ion-text color="danger">*</ion-text>
           </ion-label>
-          <ion-input type="text" placeholder="กรอกนามสกุล"></ion-input>
+          <ion-input type="text" placeholder="กรอกนามสกุล" [(ngModel)]="su_contact_lname"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">เบอร์โทรศัพท์<ion-text color="danger">*</ion-text>
           </ion-label>
-          <ion-input type="text" placeholder="กรอกเบอร์โทรศัพท์"></ion-input>
+          <ion-input type="text" placeholder="กรอกเบอร์โทรศัพท์" [(ngModel)]="su_tel_contact"></ion-input>
         </ion-item>
-
       </ion-list>
 
       <div padding>
