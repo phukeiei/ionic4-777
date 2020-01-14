@@ -94,10 +94,10 @@ export class AppComponent implements OnInit {
           icon: 'options'
         },
         {
-          title: 'จัดการข้อมูล',
+          title: 'จัดการข้อมูลผู้ใช้',
           url: '/manage-user',
           direct: 'forward',
-          icon: 'cog'
+          icon: 'paper'
         },
         {
           title: 'ตั้งค่า',

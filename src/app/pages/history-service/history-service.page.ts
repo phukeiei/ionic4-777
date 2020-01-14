@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoryServiceService } from "../../services/history-service/history-service.service";
 import { SessionService } from "../../services/session/session.service";
-import { debounceTime } from "rxjs/operators";
-import { FormControl } from '@angular/forms';
 
 
 @Component({

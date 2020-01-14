@@ -21,9 +21,10 @@ import { SearchFilterPageModule } from './pages/modal/search-filter/search-filte
 import { NotificationsComponent } from './components/notifications/notifications.component';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { ThaidatePipe } from './directives/thaidate.pipe';
 
 @NgModule({
-  declarations: [AppComponent, NotificationsComponent],
+  declarations: [AppComponent, NotificationsComponent, ThaidatePipe],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

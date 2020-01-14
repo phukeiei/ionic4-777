@@ -113,4 +113,7 @@ export class HomeAdminPage {
     goToSetServiceFees() {
       this.navCtrl.navigateForward('/set-service-fees');
     }
+    goToManage() {
+      this.navCtrl.navigateForward('/manage-user');
+    }
 }

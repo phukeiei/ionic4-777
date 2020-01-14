@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { HistoryServicePage } from './history-service.page';
 import { ReactiveFormsModule } from "@angular/forms";
-
 const routes: Routes = [
   {
     path: '',
