@@ -12,7 +12,7 @@ export class ServiceFeePage implements OnInit {
   memberCostList: any = [];
   nonMemberCostList: any = [];
 
-  option: number;
+  option: number = 1;
 
   displayData: any = [];
 

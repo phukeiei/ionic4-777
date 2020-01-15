@@ -16,7 +16,7 @@
       <ion-card-content>
         <ion-row>
           <ion-col size="11">
-            {{subscriber.su_create_date}}
+            {{(subscriber.su_create_date | date:'medium')?.substring(0,12)}}
           </ion-col>
           <ion-col size="1">
             <div>

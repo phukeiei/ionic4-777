@@ -33,7 +33,7 @@
         <ion-item>
           <ion-label>
             <h3>ชื่อ {{personData.full_name}}</h3>
-            <h3>เกิดวันที่ {{personData.psd_birthdate}}</h3>
+            <h3>เกิดวันที่ {{(personData.psd_birthdate | date:'medium')?.substring(0,12)}}</h3>
             <h3>ที่อยู่ {{personData.psd_addcur_no}} ต.{{personData.dist_name}}</h3>
             <h3>อ.{{personData.amph_name}} จ.{{personData.pv_name}}</h3>
             <h3>รหัสไปรษณีย์ {{personData.psd_addcur_zipcode}}</h3>

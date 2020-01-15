@@ -3,9 +3,9 @@
   <ion-list>
     <ion-item>
       <ion-label>เลือกประเภทผู้ใช้</ion-label>
-      <ion-select [interfaceOptions]="customAlertOptions" interface="alert" placeholder="ประเภทผู้ใช้"
+      <ion-select value="1" [interfaceOptions]="customAlertOptions" interface="alert" placeholder="ประเภทผู้ใช้"
         [(ngModel)]="option" (ionChange)="optionalCost()">
-        <ion-select-option [selected] value="1">ผู้ใช้ทั่วไป</ion-select-option>
+        <ion-select-option value="1">ผู้ใช้ทั่วไป</ion-select-option>
         <ion-select-option value="2">สมาชิก</ion-select-option>
       </ion-select>
     </ion-item>
